@@ -1,0 +1,208 @@
+@charset "UTF-8";
+
+/*共通設定*/
+html{
+    font-size: 100%
+}
+a{
+    text-decoration: none;
+    color: midnightblue;
+}
+img{
+    max-width: 100%
+}
+/*整首寬度設定*/
+.wrapper{
+    max-width:3000px;
+    margin: 0 auto;
+    padding: 0 4%;
+}
+/*---------------------------- */
+
+/*product.html*/
+
+/*LOGO設定*/
+.logo{
+    width:150px;
+    margin-top: 20px; 
+}
+
+/*選單設定*/
+.main-nav{
+    display:flex;
+    font-size:1.25rem;
+    margin-top:50px;
+    list-style:none;
+}
+.main-nav li{
+    margin-left:50px;
+}
+
+/*頁首設定*/
+.page-header{
+    display:flex;
+    justify-content: space-between;
+}
+
+/*標頭設定*/
+#product{
+    background-image: url(showspace2.png);
+    height:300px;
+    margin-bottom: 40px;
+}
+.product{
+    background-size: cover;
+    background-position: center top;
+    background-repeat: no-repeat;
+}
+#product .product-title{
+    color: gainsboro;
+    text-align: center;
+}
+
+/*作品集開始*/
+.product1{
+    text-align: center;
+}
+.product1 h2{
+    margin: 10px 0 0;
+    color: chocolate;
+}
+
+/*照片設定*/
+.all{
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f4f4f4; /* 背景顏色 */
+}
+
+.photo-grid {
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 20px;
+    grid-row-gap: 20px;
+    max-width: 80%;
+}
+
+.photo {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.photo:hover img {
+    transform: scale(1.1); /* 當懸停時圖片稍微放大 */
+}
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* 半透明黑色背景 */
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    border-radius: 8px; /* 圓角效果 */
+    text-align: center;
+    padding: 10px;
+}
+
+.photo:hover .overlay {
+    opacity: 1; /* 當鼠標懸停時顯示覆蓋層 */
+}
+
+.link{
+    color: white;
+}
+/*作品集結束*/
+
+/*點擊照片連結後的css設定開始*/
+.button-block {
+    width: 100%; /* 使區塊寬度佔滿 */
+    margin-top: 40px;
+    padding: 20px;
+    background-color: #e0e0e0;
+    display: flex;
+    justify-content: center;
+}
+
+.button-container {
+    display: flex;
+    column-gap: 20px;
+}
+
+.nav-button {
+    padding: 15px 30px;
+    font-size: 16px;
+    color: white;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease;
+}
+
+.nav-button:hover {
+    background-color: #0056b3;
+}
+/*點擊照片連結後的css設定結束*/
+
+/*FOOTER開始*/
+footer{
+    background-color: #432;
+    text-align: center;
+    padding: 26px 0;
+}
+footer{
+    color: #fff;
+    font-size: 0.875rem;
+}
+.link{
+    display: flex;
+    justify-content: center;
+}
+.ig{
+    width: 70px;
+    height: 70px;
+}
+.line{
+    width: 70px;
+    height: 70px;
+}
+/*FOOTER結束*/
+/*-----------------------------*/
+
+/*-----------------------------*/
+/*適應性測試*/
+@media (max-width: 768px) {
+  .page-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .main-nav {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .main-nav li {
+    margin: 5px 0;
+  }
+}

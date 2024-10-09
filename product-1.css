@@ -1,0 +1,270 @@
+@charset "UTF-8";
+
+/*共通設定*/
+html{
+    font-size: 100%
+}
+a{
+    text-decoration: none;
+    color: midnightblue;
+}
+img{
+    max-width: 100%
+}
+/*整首寬度設定*/
+.wrapper{
+    max-width:3000px;
+    margin: 0 auto;
+    padding: 0 4%;
+}
+/*---------------------------- */
+
+/*product.html*/
+
+/*LOGO設定*/
+.logo{
+    width:150px;
+    margin-top: 20px; 
+}
+
+/*選單設定*/
+.main-nav{
+    display:flex;
+    font-size:1.25rem;
+    margin-top:50px;
+    list-style:none;
+}
+.main-nav li{
+    margin-left:50px;
+}
+
+/*頁首設定*/
+.page-header{
+    display:flex;
+    justify-content: space-between;
+}
+
+/*標頭設定*/
+#product{
+    background-image: url(showspace2.png);
+    height:300px;
+    margin-bottom: 40px;
+}
+.product{
+    background-size: cover;
+    background-position: center top;
+    background-repeat: no-repeat;
+}
+#product .product-title{
+    color: gainsboro;
+    text-align: center;
+}
+
+.product1{
+    text-align: center;
+}
+.product1 h2{
+    margin: 10px 0 0;
+    color: chocolate;
+}
+
+.link{
+    color: white;
+}
+
+/*照片設定開始*/
+
+.photo-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 三列 */
+    column-gap: 20px; /* 照片之間的間隔 */
+    justify-content: center;
+    margin-top: 40px;
+}
+
+.photo-item {
+    position: relative;
+    width: 100%; /* 讓每個項目填滿列 */
+    padding-top: 100%; /* 確保高度與寬度相同，形成正方形 */
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.photo-item img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    cursor: pointer;
+}
+
+.modal {
+    display: none; /* 隱藏模態窗口 */
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.modal-content {
+    position: relative;
+    margin: 5% auto;
+    width: 80%;
+    max-width: 800px;
+}
+
+.modal-content img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    color: white;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover {
+    color: #bbb;
+}
+
+.prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    padding: 16px;
+    margin-top: -22px;
+    color: white;
+    font-weight: bold;
+    font-size: 24px;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.prev {
+    left: 10px;
+}
+
+.next {
+    right: 10px;
+}
+
+.prev:hover, .next:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+/*照片設定結束*/
+
+/*點擊照片連結後的css設定開始*/
+.button-block {
+    width: 100%; /* 使區塊寬度佔滿 */
+    margin-top: 40px;
+    padding: 20px;
+    background-color: #e0e0e0;
+    display: flex;
+    justify-content: center;
+}
+
+.button-container {
+    display: flex;
+    column-gap: 20px;
+}
+
+.nav-button {
+    padding: 15px 30px;
+    font-size: 16px;
+    color: white;
+    background-color: gray;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease;
+}
+
+.nav-button:hover {
+    background-color: grey;
+}
+/*點擊照片連結後的css設定結束*/
+
+/*FOOTER開始*/
+footer{
+    background-color: #432;
+    text-align: center;
+    padding: 26px 0;
+}
+footer{
+    color: #fff;
+    font-size: 0.875rem;
+}
+.link{
+    display: flex;
+    justify-content: center;
+}
+.ig{
+    width: 70px;
+    height: 70px;
+}
+.line{
+    width: 70px;
+    height: 70px;
+}
+/*FOOTER結束*/
+/*-----------------------------*/
+
+/*-----------------------------*/
+/*適應性測試*/
+/* 適應行動裝置的設計 */
+@media (max-width: 768px) {
+    .page-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .main-nav {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .main-nav li {
+        margin: 10px 0;
+    }
+
+    h1.product-title, h2.title2 {
+        font-size: 1.5rem;
+    }
+
+    .nav-button {
+        padding: 8px 15px;
+    }
+}
+
+/* 小螢幕進一步調整 */
+@media (max-width: 480px) {
+    .photo-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .nav-button {
+        font-size: 0.875rem;
+    }
+
+    .modal-content img {
+        max-width: 80%;
+        max-height: 80%;
+    }
+}

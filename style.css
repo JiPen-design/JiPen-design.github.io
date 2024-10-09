@@ -1,0 +1,189 @@
+@charset "UTF-8";
+
+/*共通設定*/
+html{
+    font-size: 100%
+}
+a{
+    text-decoration: none;
+    color: midnightblue;
+}
+img{
+    max-width: 100%
+}
+/*整首寬度設定*/
+.wrapper{
+    max-width:3000px;
+    margin: 0 auto;
+    padding: 0 4%;
+}
+/*---------------------------- */
+/*index.html*/
+
+/*LOGO設定*/
+.logo{
+    width:150px;
+    margin-top: 20px; 
+}
+
+/*選單設定*/
+.main-nav{
+    display:flex;
+    font-size:1.25rem;
+    margin-top:50px;
+    list-style:none;
+}
+.main-nav li{
+    margin-left:50px;
+}
+
+/*頁首設定*/
+.page-header{
+    display:flex;
+    justify-content: space-between;
+}
+
+/*頁中設定*/
+.page-main{
+    text-align: center;
+    margin-top: 10px;
+}
+.page-main p{
+    font-size:1.125rem;
+    margin:auto;
+    color: dimgray;
+}
+
+/*輪播圖片開始*/
+.slider-container {
+    position: relative;
+    width: 80%;
+    margin: auto;
+    overflow: hidden;
+}
+
+.slider {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.slider img {
+    width: 100%;
+    height: auto;
+}
+
+.prev-btn, .next-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    display: none;
+}
+
+.prev-btn {
+    left: 10px;
+}
+
+.next-btn {
+    right: 10px;
+}
+
+.slider-container:hover .prev-btn,
+.slider-container:hover .next-btn {
+    display: block;
+}
+/*輪播圖片結束*/
+
+/*服務項目開始*/
+#service{
+    background-color: gainsboro;
+}
+.server{
+    text-align: center;
+}
+.title{
+    padding: 0 0 20px 0;
+}
+.service{
+    display: flex;
+    justify-content: space-around;
+}
+.item{
+    font-size: large;
+}
+/*服務項目結束*/
+
+/*FOOTER開始*/
+footer{
+    background-color: #432;
+    text-align: center;
+    padding: 26px 0;
+}
+footer{
+    color: #fff;
+    font-size: 0.875rem;
+}
+.link{
+    display: flex;
+    justify-content: center;
+}
+.ig{
+    width: 70px;
+    height: 70px;
+}
+.line{
+    width: 70px;
+    height: 70px;
+}
+/*FOOTER結束*/
+/*-----------------------------*/
+
+/*響應式網頁*/
+@media(max-width:1500px){
+    .service{
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+@media(max-width:600px){
+    .title{
+        font-size: 2.5rem;
+    }
+    .page-header{
+        flex-direction: column;
+        align-items: center;
+    }
+    /*HEADER*/
+    .main-nav{
+        font-size: 1rem;
+        margin-top: 10px;
+    }
+    .main-nav li{
+        margin: 0 20px;
+    }
+    /*HOME*/
+    .home{
+        margin-top: 10%;
+    }
+    
+    /*SERVICE*/
+    .service{
+        flex-direction: column;
+        align-items: center;
+        font-size: 1rem;
+        margin-top: 10px;
+    }
+    .service li{
+        margin: 0 20px;
+    }
+    /*PRODUCT*/
+    .product{
+        margin-top: 10%;
+    }
+}
+/*-----------------------------*/
