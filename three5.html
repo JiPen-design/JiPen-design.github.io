@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>吉本櫥櫃有限公司 - 作品集</title>
+        
+        <!-- css -->
+        <link rel="stylesheet" href="ress.css">
+        <link rel="stylesheet" href="product-1.css">
+        <link rel="icon" type="image/png" href="logo.png"> <!-- 網頁標誌 -->
+    </head>
+    
+    <body>
+<!-- 頁首開始 -->
+        <div id="product" class="product">
+            <header class="page-header wrapper">
+                <a href="index.html"><img class="logo" src="logo.png" alt="吉本櫥櫃有限公司首頁"></a>
+                <nav>
+                    <ul class="main-nav">
+                        <li><a href="index.html">首頁</a></li>
+                        <li><a href="product.html">作品集</a></li>
+                    </ul>    
+                </nav>
+            </header>
+            <h1 class="product-title">吉本櫥櫃-作品集</h1>
+        </div>
+<!-- 頁首結束 -->
+<!-- 作品集詳述開始--> 
+        <div id="product1" class="product1">
+            <h2 class="title2">梧棲仁美街 林宅</h2>
+        </div>
+        <div class="photo-grid">
+            <div class="photo">
+                <img src="images-three-5-1.jpg" alt="" onclick="openModal(0)">
+            </div>
+            <div class="photo">
+                <img src="images-three-5-2.jpg" alt="" onclick="openModal(1)">
+            </div>
+            <div class="photo">
+                <img src="images-three-5-3.jpg" alt="" onclick="openModal(2)">
+            </div>
+        </div>
+        <!-- 模態窗口 -->
+        <div id="modal" class="modal">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <div class="modal-content">
+                <img id="modal-image" src="" alt="Modal Image">
+                <a class="prev" onclick="changeImage(-1)">&#10094;</a>
+                <a class="next" onclick="changeImage(1)">&#10095;</a>
+            </div>
+        </div>
+        <div class="button-block">
+            <div class="button-container">
+                <button class="nav-button"><a class="link" href="three4.html">上一個</a></button>
+                <button class="nav-button"><a class="link" href="product.html">返回作品集</a></button>
+                    <button class="nav-button"><a class="link" href="three6.html">下一個</a></button>
+            </div>
+        </div>
+<!-- 作品集詳述結束 -->
+        <script>
+        let currentIndex = 0;
+        const images = ["images-three-5-1.jpg", "images-three-5-2.jpg", "images-three-5-3.jpg"]; // 圖片的 URL
+
+        function openModal(index) {
+            currentIndex = index;
+            document.getElementById('modal-image').src = images[currentIndex];
+            document.getElementById('modal').style.display = "block";
+        }
+
+        function closeModal() {
+            document.getElementById('modal').style.display = "none";
+        }
+
+        function changeImage(direction) {
+            currentIndex = (currentIndex + direction + images.length) % images.length;
+            document.getElementById('modal-image').src = images[currentIndex];
+        }
+    </script>
+<!-- 頁尾開始 -->
+        <footer>
+            <div>
+                <p>統編:90076445</p>
+                <p>Line:0979696595</p>
+                <p>連絡電話:0979696595</p>
+                <p>E-mail:90076445b@gmail.com</p>
+                <p>地址:台中市西屯區工業區十六路3-43號</p>
+                <div class="link">
+                    <div class="item"><a href="https://www.instagram.com/jipen_design?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="><img class="ig" src="ig.png" alt="ig連結"></a></div>
+                    <div class="item"><a href="https://line.me/ti/p/~0979696595"><img class="line" src="line.png" alt="line連結"></a></div>
+                </div>
+                <p><small>&copy; 2024 JPdesign</small></p>
+            </div>
+        </footer>
+<!-- 頁尾結束-->
+    </body>
+</html>
