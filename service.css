@@ -1,0 +1,275 @@
+@charset "UTF-8";
+
+/*共通設定*/
+* {
+    box-sizing: border-box;
+}
+html{
+    font-size: 100%; /*設定HTML文件的字體大小為預設16px*/
+}
+body {
+    margin: 0;
+    padding-top: 80px;
+    font-family: Arial, sans-serif;
+}
+a{
+    text-decoration: none; /*移除超連結預設的底線效果*/
+    color: midnightblue; /*將超連結的文字顏色統一設為深藍色*/
+}
+img{
+    max-width: 100%
+}
+
+/*頁首設定*/
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    z-index: 1000;
+}
+
+/*LOGO設定*/
+.logo-link {
+    display: block;
+    width: 110px;
+    margin: 10px auto 0 auto;
+    z-index: 2;
+}
+
+.logo {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/*全螢幕選單設定*/
+.main-nav{
+    max-width: 1200px;
+    margin: 0 auto;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+.nav-left, .nav-right {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    column-gap: 16px;
+}
+.nav-left {
+    right: 58%;
+}
+.nav-right {
+    left: 58%;
+}
+/* 漢堡按鈕 (縮小版) */
+.menu-btn {
+    display: none; /* 預設隱藏，行動版才顯示 */
+    font-size: 20px;
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    padding: 10px;
+    background-color: #333;
+    border-radius: 5px;
+    position: fixed;
+    top: 15px;
+    right: 15px;
+    z-index: 1100;
+}
+
+/* 側邊選單 (縮小版) */
+.sidebar {
+    width: 250px;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    right: -250px; /* 預設隱藏 */
+    background-color: #333;
+    padding-top: 60px;
+    transition: right 0.3s ease;
+    z-index: 1000;
+}
+
+.sidebar a {
+    display: block;
+    padding: 15px;
+    color: white;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.sidebar a:hover {
+    background-color: #575757;
+}
+
+.sidebar.active {
+    right: 0;
+}
+
+.title {
+    text-align: center;
+    margin-top: 100px;
+    margin-bottom: 30px;
+    font-size: 28px;
+    color: #333;
+}
+/*服務流程開始*/
+.service{
+    text-align: center;
+}
+/* ========= 整體容器置中 ========== */
+.content {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 2em 1em;
+}
+
+/* ========= 單個步驟卡片通用樣式 ========== */
+.part {
+    border-radius: 12px;
+    padding: 1.5em;
+    margin-bottom: 2em;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    transform: translateY(30px);
+    opacity: 0;
+    transition: all 0.5s ease;
+}
+
+/* ========= 被觀察到後滑入顯示 ========= */
+.part.visible {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+/* ========= Hover 效果 ========= */
+.part:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    filter: brightness(1.02);
+}
+
+/* ========= 每步驟不同背景色 ========= */
+.step1 { background: #f1ecff; } /* 淡紫 */
+.step2 { background: #e6f0ff; } /* 淺藍 */
+.step3 { background: #e2f7f6; } /* 淺藍綠 */
+.step4 { background: #fef8e7; } /* 淺黃 */
+.step5 { background: #f7eefb; } /* 淺粉紫 */
+.step6 { background: #e7f6ef; } /* 淺綠 */
+
+/* ========= 數字與標題排列 ========= */
+.step-header {
+    display: flex;
+    align-items: center;
+    gap: 1em;
+    margin-bottom: 0.6em;
+}
+
+/* ========= 數字圈圈 ========= */
+.number {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 2.5em;
+    height: 2.5em;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    font-size: 1.2em;
+    font-weight: bold;
+    flex-shrink: 0;
+}
+
+/* ========= 主題文字 ========= */
+.topic {
+    font-size: 1.3em;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+    margin: 0;
+}
+
+/* ========= 內文 ========= */
+.part p {
+    margin: 0;
+    color: #444;
+    line-height: 1.7;
+    font-size: 1rem;
+}
+/*服務流程結束*/
+
+/*FOOTER開始*/
+footer{
+    background-color: #432;
+    text-align: center;
+    padding: 26px 0;
+}
+footer{
+    color: #fff;
+    font-size: 0.875rem;
+}
+.link{
+    display: flex;
+    justify-content: center;
+}
+.ig{
+    width: 70px;
+    height: 70px;
+}
+.line{
+    width: 70px;
+    height: 70px;
+}
+/*FOOTER結束*/
+/*-----------------------------*/
+
+/*響應式網頁*/
+/* 行動裝置 (最大寬度 768px) */
+@media (max-width: 768px) {
+    .main-nav {
+        display: none; /* 隱藏水平選單 */
+        flex-direction: column; /* 垂直排列 */
+        font-size: 1rem; /* 調整選單字體大小 */
+        column-gap: 30px; /* 減少選單項目間距 */
+    }
+
+    .menu-btn {
+        display: block; /* 顯示漢堡按鈕 */
+    }
+
+    .sidebar {
+        width: 220px; /* 調整側邊選單寬度 */
+    }
+
+    .logo {
+        width: 120px; /* 調整 LOGO 大小 */
+    }
+
+ .step-header {
+        column-gap: 0.8em;
+    }
+
+    .number {
+        width: 2em;
+        height: 2em;
+        font-size: 1em;
+    }
+
+    .topic {
+        font-size: 1.1em;
+    }
+
+    .part {
+        padding: 1.2em;
+    }
+    
+    
+    footer {
+        font-size: 0.75rem; /* 減小頁腳字體 */
+    }
+}

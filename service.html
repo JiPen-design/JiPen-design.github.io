@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>吉本櫥櫃有限公司 - 客戶服務</title>
+        
+        <!-- css -->
+        <link rel="stylesheet" href="ress.css">
+        <link rel="stylesheet" href="service.css">
+        <link rel="icon" type="image/png" href="logo.png"> <!-- 網頁標誌 -->
+    </head>
+    
+    <body>
+        <!-- 頁首開始 -->
+        <header>
+            <a href="index.html" class="logo-link"><img class="logo" src="logo.png" alt="吉本櫥櫃有限公司首頁"></a>
+            
+            <div class="main-nav"><!-- 全部的選單 -->
+                <div class="nav-left"><!--選單左邊 -->
+                    <a href="index.html">首頁</a>
+                    <a href="product.html">作品集</a>
+                    <a href="service.html">客戶服務</a>
+                </div>
+            
+                <div class="nav-right"><!--選單右邊 -->
+                    <a href="company.html">合作廠商</a>
+                </div> 
+            </div>
+                <!-- 漢堡按鈕 (行動版) -->
+                <button class="menu-btn" onclick="toggleMenu()">☰ 選單</button>
+
+                <!-- 側邊導覽選單 (行動版) -->
+                <div class="sidebar" id="sidebar">
+                    <a href="index.html">首頁</a>
+                    <a href="product.html">作品集</a>
+                    <a href="service.html">客戶服務</a>
+                    <a href="company.html">合作廠商</a>
+                </div>
+            
+                <script src="script.js"></script>
+        </header>
+        <!-- 頁首結束 -->
+        <!-- 客戶服務開始 -->
+        <h1 class="title">服務流程</h1>
+        <div class="content">
+            <div class="part step1">
+                <div class="step-header">
+                    <h3 class="number">1</h3>
+                    <h3 class="topic">初步溝通</h3>
+                </div>
+                <p>了解案場地址、業主資料、業主需求後提供相關的建議評估</p>
+            </div>
+            <div class="part step2">
+                <div class="step-header">
+                    <h3 class="number">2</h3>
+                    <h3 class="topic">現場丈量</h3>
+                </div>
+                <p>與業主約定時間至現場勘查、丈量</p>
+            </div>
+            <div class="part step3">
+                <div class="step-header">
+                    <h3 class="number">3</h3>
+                    <h3 class="topic">圖面提案</h3>
+                </div>
+                <p>依照需求與現況以Sketchup進行初步規劃輸出3D示意圖</p>
+            </div>
+            <div class="part step4">
+                <div class="step-header">
+                    <h3 class="number">4</h3>
+                    <h3 class="topic">簽訂合作意向書</h3>
+                </div>
+                <p>確定架構與方向後，與業主簽訂合作意向書</p>
+            </div>
+            <div class="part step5"> 
+                <div class="step-header">
+                    <h3 class="number">5</h3>
+                    <h3 class="topic">繪製施工圖</h3>
+                </div>
+                <p>與業主討論與修改各個規劃細節部分，確保符合業主使用習慣</p>
+            </div>
+            <div class="part step6">
+                <div class="step-header">
+                    <h3 class="number">6</h3>
+                    <h3 class="topic">簽訂合約書</h3>
+                </div>
+                <p>確定施作後簽訂合約書並附上全彩3D示意圖及施工規劃圖</p>
+            </div>
+        </div>
+        
+        <script>
+      const parts = document.querySelectorAll('.part');
+
+      const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target); // 顯示一次後就不再觀察
+          }
+        });
+      }, {
+        threshold: 0.1
+      });
+
+      parts.forEach(part => observer.observe(part));
+</script>
+
+        <!-- 客戶服務結束 -->
+        <!-- 頁尾開始 -->
+        <footer>
+            <div>
+                <p>統編:90076445</p>
+                <p>Line:0979696595</p>
+                <p>連絡電話:0979696595</p>
+                <p>E-mail:90076445b@gmail.com</p>
+                <p>地址:台中市西屯區工業區十六路3-43號</p>
+                <div class="link">
+                    <div class="item"><a href="https://www.instagram.com/jipen_design?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="><img class="ig" src="ig.png" alt="ig連結"></a></div>
+                    <div class="item"><a href="https://line.me/ti/p/~0979696595"><img class="line" src="line.png" alt="line連結"></a></div>
+                </div>
+                <p><small>&copy; 2024 JPdesign</small></p>
+            </div>
+        </footer>
+        <!-- 頁尾結束-->
+    </body>
+</html>

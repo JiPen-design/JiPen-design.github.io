@@ -1,0 +1,283 @@
+@charset "UTF-8";
+
+/*共通設定*/
+* {
+    box-sizing: border-box;
+}
+html{
+    font-size: 100%; /*設定HTML文件的字體大小為預設16px*/
+}
+body {
+    margin: 0;
+    padding-top: 80px;
+    font-family: Arial, sans-serif;
+}
+a{
+    text-decoration: none; /*移除超連結預設的底線效果*/
+    color: midnightblue; /*將超連結的文字顏色統一設為深藍色*/
+}
+img{
+    max-width: 100%
+}
+
+/*-------頁首設定開始------*/
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    z-index: 1000;
+}
+
+/*LOGO設定*/
+.logo-link {
+    display: block;
+    width: 110px;
+    margin: 10px auto 0 auto;
+    z-index: 2;
+}
+
+.logo {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/*全螢幕選單設定*/
+.main-nav{
+    max-width: 1200px;
+    margin: 0 auto;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+.nav-left, .nav-right {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    column-gap: 16px;
+}
+.nav-left {
+    right: 58%;
+}
+.nav-right {
+    left: 58%;
+}
+/* 漢堡按鈕 (縮小版) */
+.menu-btn {
+    display: none; /* 預設隱藏，行動版才顯示 */
+    font-size: 20px;
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    padding: 10px;
+    background-color: #333;
+    border-radius: 5px;
+    position: fixed;
+    top: 15px;
+    right: 15px;
+    z-index: 1100;
+}
+
+/* 側邊選單 (縮小版) */
+.sidebar {
+    width: 250px;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    right: -250px; /* 預設隱藏 */
+    background-color: #333;
+    padding-top: 60px;
+    transition: right 0.3s ease;
+    z-index: 1000;
+}
+
+.sidebar a {
+    display: block;
+    padding: 15px;
+    color: white;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.sidebar a:hover {
+    background-color: #575757;
+}
+
+.sidebar.active {
+    right: 0;
+}
+/*-------頁首設定結束------*/
+/*------配合廠商開始------*/
+.partners-section {
+    padding: 60px 20px;
+    background: #f9f9f9;
+    text-align: center;
+}
+
+.partners-section > h2 {
+    font-size: 2rem;
+    margin-top: 10px;
+    margin-bottom: 40px;
+    color: #333;
+}
+
+/* 各群組 */
+.partner-group {
+  margin-bottom: 60px;
+  text-align: left; /* 群組標題靠左 */
+}
+
+/* 群組小標題 */
+.group-title {
+  font-size: 1.5rem;
+  margin-bottom: 30px;
+  color: #444;
+  border-left: 4px solid #667eea;
+  padding-left: 12px;
+  font-weight: 600;
+}
+
+/* 多欄容器保持不變 */
+.partners-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start; /* 從左開始排列 */
+  gap: 30px;
+}
+
+/* 卡片 */
+.partner-card {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+  width: 300px;
+  padding: 20px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.6s ease;
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.partner-card.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.partner-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+}
+
+.partner-card img {
+  max-width: 100px;
+  margin: 0 auto 15px;
+  display: block;
+}
+
+.partner-info h4 {
+  font-size: 1.2rem;
+  margin: 10px 0;
+  color: #2c3e50;
+}
+
+.partner-info p {
+  font-size: 0.95rem;
+  color: #555;
+  margin-bottom: 15px;
+}
+
+.partner-info a {
+  display: inline-block;
+  text-decoration: none;
+  color: #0077cc;
+  border: 1px solid #0077cc;
+  padding: 6px 12px;
+  border-radius: 6px;
+  transition: all 0.3s;
+}
+
+.partner-info a:hover {
+  background: #0077cc;
+  color: white;
+}
+/*-------配合廠商結束------*/
+/*------FOOTER開始------*/
+footer{
+    background-color: #432;
+    text-align: center;
+    padding: 26px 0;
+}
+footer{
+    color: #fff;
+    font-size: 0.875rem;
+}
+.link{
+    display: flex;
+    justify-content: center;
+}
+.ig{
+    width: 70px;
+    height: 70px;
+}
+.line{
+    width: 70px;
+    height: 70px;
+}
+/*------FOOTER結束------*/
+
+/* ========= RWD ========= */
+
+@media (max-width: 1024px) {
+  .partner-card {
+    width: 45%;
+  }
+}
+
+@media (max-width: 767px) {
+     /* 隱藏左右導覽列 */
+    .nav-left,
+    .nav-right {
+        display: none;
+    }
+
+    /* 顯示漢堡按鈕 */
+    .hamburger,
+    .menu-btn {
+        display: flex;
+    }
+
+    /* Logo 垂直置中 */
+    .logo-link {
+        width: 80px; /* 或 40px 高度換算寬度 */
+        margin: 10px auto;
+    }
+
+    /* 導覽列簡化 */
+    .main-nav {
+        display: none;
+    }
+
+  .partners-container {
+    justify-content: center;
+  }
+
+  .partner-card {
+    width: 100%;
+    max-width: 360px;
+  }
+
+  .partner-group {
+    text-align: center;
+  }
+
+  .group-title {
+    padding-left: 0;
+    border-left: none;
+    margin-bottom: 20px;
+  }
+}

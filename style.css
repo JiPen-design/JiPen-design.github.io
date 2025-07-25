@@ -1,102 +1,248 @@
 @charset "UTF-8";
 
 /*共通設定*/
+* {
+    box-sizing: border-box;
+}
 html{
-    font-size: 100%
+    font-size: 100%; /*設定HTML文件的字體大小為預設16px*/
+}
+body {
+    margin: 0;
+    padding-top: 80px;
+    font-family: Arial, sans-serif;
 }
 a{
-    text-decoration: none;
-    color: midnightblue;
+    text-decoration: none; /*移除超連結預設的底線效果*/
+    color: midnightblue; /*將超連結的文字顏色統一設為深藍色*/
 }
 img{
     max-width: 100%
 }
-/*整首寬度設定*/
-.wrapper{
-    max-width:3000px;
-    margin: 0 auto;
-    padding: 0 4%;
-}
-/*---------------------------- */
-/*index.html*/
-
-/*LOGO設定*/
-.logo{
-    width:150px;
-    margin-top: 20px; 
-}
-
-/*選單設定*/
-.main-nav{
-    display:flex;
-    font-size:1.25rem;
-    margin-top:50px;
-    list-style:none;
-}
-.main-nav li{
-    margin-left:50px;
-}
 
 /*頁首設定*/
-.page-header{
-    display:flex;
-    justify-content: space-between;
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    z-index: 1000;
 }
 
-/*頁中設定*/
-.page-main{
-    text-align: center;
-    margin-top: 10px;
-}
-.page-main p{
-    font-size:1.125rem;
-    margin:auto;
-    color: dimgray;
+/*LOGO設定*/
+.logo-link {
+    display: block;
+    width: 110px;
+    margin: 10px auto 0 auto;
+    z-index: 2;
 }
 
-/*輪播圖片開始*/
-.slider-container {
-    position: relative;
-    width: 80%;
-    margin: auto;
-    overflow: hidden;
-}
-
-.slider {
-    display: flex;
-    transition: transform 0.5s ease-in-out;
-}
-
-.slider img {
+.logo {
     width: 100%;
     height: auto;
+    display: block;
 }
 
-.prev-btn, .next-btn {
+/*全螢幕選單設定*/
+.main-nav{
+    max-width: 1200px;
+    margin: 0 auto;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+.nav-left, .nav-right {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    column-gap: 16px;
+}
+.nav-left {
+    right: 58%;
+}
+.nav-right {
+    left: 58%;
+}
+/* 漢堡按鈕 (縮小版) */
+.menu-btn {
+    display: none; /* 預設隱藏，行動版才顯示 */
+    font-size: 20px;
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    padding: 10px;
+    background-color: #333;
+    border-radius: 5px;
+    position: fixed;
+    top: 15px;
+    right: 15px;
+    z-index: 1100;
+}
+
+/* 側邊選單 (縮小版) */
+.sidebar {
+    width: 250px;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    right: -250px; /* 預設隱藏 */
+    background-color: #333;
+    padding-top: 60px;
+    transition: right 0.3s ease;
+    z-index: 1000;
+}
+
+.sidebar a {
+    display: block;
+    padding: 15px;
+    color: white;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.sidebar a:hover {
+    background-color: #575757;
+}
+
+.sidebar.active {
+    right: 0;
+}
+
+/* 輪撥展示區開始 */
+.page-main {
+    text-align: center;
+    margin-top: 70px;
+}
+.page-main p {
+    font-size: 1.125rem;
+    color: dimgray;
+}
+
+.slider {
+    position: relative;
+    width: 100%;
+    max-width: 900px;
+    height: 50vh;
+    margin: auto;
+    overflow: hidden;
+}
+.slide {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 100%;
+    opacity: 0;
+    transition: all 0.8s ease;
+}
+.slide.active {
+    left: 0;
+    opacity: 1;
+    z-index: 1;
+}
+.slide-container {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+.slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+.slider:hover img {
+    transform: scale(1.05);
+}
+.overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 30%;
+    background-color: rgba(0, 0, 0, 0.4);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    font-size: 20px;
+    text-align: center;
+}
+.slider:hover .overlay {
+    opacity: 1;
+}
+.overlay a {
+    color: white;
+    font-weight: bold;
+}
+.nav-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
     color: white;
     border: none;
     padding: 10px;
     cursor: pointer;
-    display: none;
+    z-index: 2;
 }
-
-.prev-btn {
+.nav-button:hover {
+    background: rgba(0, 0, 0, 0.6);
+}
+.prev {
     left: 10px;
 }
+.next {
+    right: 10px;  
+}
+/* 輪撥展示區結束 */
+/*公司介紹開始*/
+.intro{
+    display: flex;
+    flex-direction: row;   /* 明確設定橫排 */
+    align-items: center;   /* 垂直置中 */
+    column-gap: 30px;             /* 圖片與文字間距 */
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 5px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+ .intro-image img {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    border-radius: 8px;
+    object-fit: cover;
+    }
 
-.next-btn {
-    right: 10px;
+.intro-text {
+    flex: 1;
 }
 
-.slider-container:hover .prev-btn,
-.slider-container:hover .next-btn {
-    display: block;
+.intro-text h3 {
+    font-size: 2rem;
+    margin-bottom: 16px;
+    color: #333;
 }
-/*輪播圖片結束*/
+
+.intro-text h4{
+    color: #1e90ff;
+}
+
+.intro-text p {
+    font-size: 1.125rem;
+    line-height: 1.6;
+    color: #444;
+}
+/*公司介紹結束*/
 
 /*服務項目開始*/
 #service{
@@ -142,48 +288,113 @@ footer{
 /*FOOTER結束*/
 /*-----------------------------*/
 
-/*響應式網頁*/
-@media(max-width:1500px){
-    .service{
+/*適應式*/
+/* 📱 1500px 以下：section 排列調整 */
+@media (max-width: 1500px) {
+    .service {
         flex-direction: column;
         align-items: center;
     }
 }
+/* 📱 768px 以下：手機版導覽列與區塊簡化 */
+@media screen and (max-width: 768px) {
+    /* 隱藏左右導覽列 */
+    .nav-left,
+    .nav-right {
+        display: none;
+    }
 
-@media(max-width:600px){
-    .title{
-        font-size: 2.5rem;
+    /* 顯示漢堡按鈕 */
+    .hamburger,
+    .menu-btn {
+        display: flex;
     }
-    .page-header{
-        flex-direction: column;
-        align-items: center;
+
+    /* Logo 垂直置中 */
+    .logo-link {
+        width: 80px; /* 或 40px 高度換算寬度 */
+        margin: 10px auto;
     }
-    /*HEADER*/
-    .main-nav{
-        font-size: 1rem;
-        margin-top: 10px;
+
+    /* 導覽列簡化 */
+    .main-nav {
+        display: none;
     }
-    .main-nav li{
-        margin: 0 20px;
+
+    /* 內容區塊基本調整 */
+    .overlay {
+        font-size: 16px;
+        height: 40%;
+        padding: 10px;
     }
-    /*HOME*/
-    .home{
-        margin-top: 10%;
+
+    .nav-button {
+        font-size: 24px;
     }
     
-    /*SERVICE*/
-    .service{
+    .page-main {
+    margin-top: 10px;
+    }
+    
+    .intro {
+        flex-direction: column;    /* 垂直排列 */
+        text-align: center;
+    }
+
+    .intro-image img {
+        max-width: 100%;           /* 滿版圖片 */
+        margin-bottom: 20px;       /* 圖片與文字間距 */
+    }
+
+    .intro-text h3 {
+        font-size: 1.5rem;         /* 標題稍微縮小 */
+    }
+
+    .intro-text p {
+        font-size: 1rem;           /* 文字稍微縮小 */
+    }
+}
+/* 📱 600px 以下：文字大小、間距、排列進一步調整 */
+@media (max-width: 600px) {
+    /* 主要標題縮小 */
+    .title {
+        font-size: 2.5rem;
+    }
+
+    /* Header 排版簡化 */
+    .page-header {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .main-nav {
+        font-size: 1rem;
+        margin-top: 10px;
+    }
+
+    .main-nav li {
+        margin: 0 20px;
+    }
+
+    /* Home 區塊間距 */
+    .home {
+        margin-top: 10%;
+    }
+
+    /* Service 區塊調整 */
+    .service {
         flex-direction: column;
         align-items: center;
         font-size: 1rem;
         margin-top: 10px;
     }
-    .service li{
+
+    .service li {
         margin: 0 20px;
     }
-    /*PRODUCT*/
-    .product{
+
+    /* Product 區塊間距 */
+    .product {
         margin-top: 10%;
     }
 }
-/*-----------------------------*/

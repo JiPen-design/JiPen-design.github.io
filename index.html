@@ -13,15 +13,34 @@
     
     <body>
         <!-- 頁首開始 -->
-        <header class="page-header wrapper">
-            <a href="index.html"><img class="logo" src="logo.png" alt="吉本櫥櫃有限公司首頁"></a>
-            <nav>
-                <ul class="main-nav">
-                    <li><a href="index.html">首頁</a></li>
-                    <li><a href="product.html">作品集</a></li>
-                </ul>    
-            </nav>
+        <header>
+            <a href="index.html" class="logo-link"><img class="logo" src="logo.png" alt="吉本櫥櫃有限公司首頁"></a>
+            
+            <div class="main-nav"><!-- 全部的選單 -->
+                <div class="nav-left"><!--選單左邊 -->
+                    <a href="index.html">首頁</a>
+                    <a href="product.html">作品集</a>
+                    <a href="service.html">客戶服務</a>
+                </div>
+            
+                <div class="nav-right"><!--選單右邊 -->
+                    <a href="company.html">合作廠商</a>
+                </div> 
+            </div>
+                <!-- 漢堡按鈕 (行動版) -->
+                <button class="menu-btn" onclick="toggleMenu()">☰ 選單</button>
+
+                <!-- 側邊導覽選單 (行動版) -->
+                <div class="sidebar" id="sidebar">
+                    <a href="index.html">首頁</a>
+                    <a href="product.html">作品集</a>
+                    <a href="service.html">客戶服務</a>
+                    <a href="company.html">合作廠商</a>
+                </div>
+            
+                <script src="script.js"></script>
         </header>
+        
         <!-- 頁首結束 -->
         <!-- 展示區開始 -->
         <div id="home" class="home">
@@ -31,20 +50,69 @@
             </div>
         </div>
         
-        <div class="slider-container">
-            <div class="slider">
-                <img src="showspace.png" alt="Image 1">
-                <img src="images-one-2.jpg" alt="Image 2">
-                <img src="images-one-1.jpg" alt="Image 3">
-                <img src="showspace.png" alt="Image 1 Clone">
+        <div class="slider" id="slider">
+        <button class="nav-button prev" onclick="prevSlide()">❮</button>
+        <button class="nav-button next" onclick="nextSlide()">❯</button>
+
+        <div class="slide active">
+            <div class="slide-container">
+                <img src="showspace.png" alt="圖片 1">
+                <div class="overlay">公司展示空間</div>
             </div>
-            <button class="prev-btn" onclick="prevSlide()">&#10094;</button>
-            <button class="next-btn" onclick="nextSlide()">&#10095;</button>
         </div>
 
-        <script src="script.js"></script>
+        <div class="slide">
+            <div class="slide-container">
+                <img src="images-one-2.jpg" alt="圖片 2">
+                <div class="overlay">
+                    <a href="one2.html" target="_blank">草屯 林宅</a>
+                </div>
+            </div>
+        </div>
 
+        <div class="slide">
+            <div class="slide-container">
+                <img src="images-one-1.jpg" alt="圖片 3">
+                <div class="overlay">
+                    <a href="one1.html" target="_blank">坤悅雅樂 張宅</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+        <script src="javascripttest.js"></script>
         <!-- 展示區結束 -->
+        
+        <!--公司介紹開始-->
+        <h2 align="center">關於我們</h2>
+        <section class="intro">
+            <div class="intro-image">
+                <img src="images-one-2-11.png" alt="公司介紹圖片">
+            </div>
+            <div class="intro-text">
+                <h3>成立理念</h3>
+                <h4>精緻服務、客戶信賴</h4>
+                <p>
+                    我們秉持「聚焦細節，精緻服務」的理念，為客戶打造兼具美觀與實用性的居家空間。<br>
+                    無論是整體房屋規劃設計，還是全室系統櫃的設計與規劃，我們都以專業的技術與創新的設計，為客戶創造理想的居住環境。<br>
+                    公司位於台中市西屯區，憑藉多年的經驗與專業，我們已成為業界值得信賴的品牌，並持續為客戶提供最用心的服務。
+                </p>
+            </div>
+        </section>
+        <section class="intro">
+            <div class="intro-image">
+                <img src="images-two-10-10.png" alt="公司介紹圖片">
+            </div>
+            <div class="intro-text">
+                <h3>成立目標</h3>
+                <h4>高品質服務</h4>
+                <p>
+                    吉本櫥櫃有限公司專注於提供高品質的系統櫃及廚具產品，致力於滿足客戶對現代化居家設計的需求。<br>
+                    我們的產品範疇涵蓋國產與進口廚具、系統櫥櫃、廚房電器設備及居家家電設備，並提供全方位的室內規劃與設計服務。
+            </div>
+        </section>
+        <!--公司介紹結束-->
+        
         <!-- 服務項目開始 -->
         <div id="service">
             <div class="server">
