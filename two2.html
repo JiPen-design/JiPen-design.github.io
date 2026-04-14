@@ -59,12 +59,18 @@
             <div class="photo">
                 <img src="images-two-2-5.jpg" alt="" onclick="openModal(4)">
             </div>
+            <div class="photo video-container">
+                <video autoplay muted loop playsinline class="portfolio-video" onclick="openVideoModal('images-two-2-6.mp4')">
+                    <source src="images-two-2-6.mp4" type="video/mp4">
+                </video>
+            </div>
         </div>
         <!-- 模態窗口 -->
         <div id="modal" class="modal">
             <span class="close" onclick="closeModal()">&times;</span>
             <div class="modal-content">
                 <img id="modal-image" src="" alt="Modal Image">
+                <video id="modal-video" controls style="display:none; width:100%; border-radius:10px;"></video>
                 <a class="prev" onclick="changeImage(-1)">&#10094;</a>
                 <a class="next" onclick="changeImage(1)">&#10095;</a>
             </div>
@@ -80,43 +86,63 @@
     <script>
         // 模態視窗和選單的 DOM 元素
         const modal = document.querySelector('.modal');
+        const modalImage = document.getElementById('modal-image');
+        const modalVideo = document.getElementById('modal-video');
         const closeModalBtn = document.querySelector('.close');
         const menuBtn = document.querySelector('.menu-btn');
         const sidebar = document.querySelector('.sidebar');
-            
+        
         let currentIndex = 0;
         const images = ["images-two-2-2.jpg", "images-two-2-3.jpg", "images-two-2-4.jpg", "images-two-2-1.jpg", "images-two-2-5.jpg"]; // 圖片的 URL
 
-        // 開啟模態視窗
+        // 開啟影片懸浮視窗
+        function openVideoModal(videoSrc) {
+                modalImage.style.display = 'none'; // 隱藏圖片
+                modalVideo.style.display = 'block'; // 顯示影片
+                modalVideo.src = videoSrc;
+                modalVideo.play();
+                modal.style.display = 'block';
+                sidebar.classList.remove('active');
+        }
+
+         // 開啟圖片懸浮視窗
         function openModal(index) {
             currentIndex = index;
-            document.getElementById('modal-image').src = images[currentIndex];
+            modalVideo.pause();
+            modalVideo.style.display = 'none';
+            modalImage.style.display = 'block';
+            modalImage.src = images[currentIndex];
             modal.style.display = 'block';
             sidebar.classList.remove('active'); // 隱藏選單
         }
 
-        // 關閉模態視窗
-        closeModalBtn.addEventListener('click', () => {
-            modal.style.display = 'none';
-        });
+        // 關閉模態視窗（統一呼叫這個）
+        function closeModal() {
+        modal.style.display = 'none';
+        modalVideo.pause();
+        modalVideo.src = ""; // 清空影片路徑確保停止
+        }
 
         // 控制側邊選單顯示與隱藏
-        menuBtn.addEventListener('click', () => {
+        function toggleMenu() {
             sidebar.classList.toggle('active');
-        });
+        }
 
         // 點擊空白區域時關閉模態視窗
         window.addEventListener('click', (e) => {
             if (e.target === modal) {
-                modal.style.display = 'none';
+                closeModal();
             }
         });
         
         // 切換圖片
         function changeImage(direction) {
+            modalVideo.style.display = 'none';
+            modalVideo.pause();
+            modalImage.style.display = 'block';
             currentIndex = (currentIndex + direction + images.length) % images.length;
             document.getElementById('modal-image').src = images[currentIndex];
-        }
+        } 
     </script>
 <!-- 頁尾開始 -->
         <footer>
