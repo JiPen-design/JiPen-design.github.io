@@ -129,9 +129,34 @@ header {
 .photo-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr); /* 三列 */
-    column-gap: 20px; /* 照片之間的間隔 */
-    justify-content: center;
-    margin-top: 40px;
+    gap: 20px; /* 照片之間的間隔 */
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+.photo {
+    width: 100%;
+    /* 關鍵 1：設定固定比例 (1/1 是正方形, 3/2 是橫向長方形) */
+    aspect-ratio: 3 / 2; 
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #f0f0f0; /* 圖片載入前的底色 */
+}
+
+.photo img {
+    width: 100%;
+    height: 100%;
+    /* 關鍵 2：裁切圖片以填滿容器，不拉伸變形 */
+    object-fit: cover; 
+    display: block;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.photo:hover img {
+    transform: scale(1.1); /* 懸浮縮放效果 */
 }
 
 .photo-item {
@@ -164,6 +189,21 @@ header {
     transform: scale(1.1); /* 當懸停時放大圖片 */
 }
 
+.video-container {
+    background-color: #000;
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+}
+
+/* 讓影片填滿格子並自動裁切中心點 */
+.portfolio-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* 關鍵：確保影片不拉伸變形 */
+    display: block;
+}
+
 /* 照片模態窗口 */
 .modal {
     display: none; /* 隱藏模態窗口 */
@@ -189,8 +229,20 @@ header {
 }
 
 .modal-content img {
+    width: auto;
+    max-width: 100%;
+    max-height: 80vh; /* 限制高度不要超過螢幕，避免捲動 */
+    margin: auto;
+    display: block;
+    object-fit: contain; /* 完整顯示，不裁切 */
+}
+
+.modal-content video {
     width: 100%;
-    border-radius: 10px;
+    max-height: 80vh;
+    margin: auto;
+    display: block;
+    outline: none;
 }
 
 /*關閉按鈕*/
